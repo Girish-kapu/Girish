@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<script type="text/javascript" src = "angular.js"></script>
+	<script type="text/javascript" src = "script.js"></script>
+</head>
+<body ng-app  = "app">
+<div ng-controller = "cont">
+<input type="text" ng-model="selectedValues.name" placeholder="Enter Name"></input>
+<br /><br />
+<input type="text" ng-model="selectedValues.age" placeholder="Enter Age"></input>
+<br /><br />
+<input type="text" ng-model="selectedValues.city" placeholder="Enter City"></input>
+<br /><br />
+<input type="button" ng-click="submit()" value="Add" ng-hide="!HideEdit"></input>
+<input type="button" ng-click="update()" value="Update" ng-hide="HideEdit"></input>
+<input type="button" ng-click="cancel()" value="Clear" ng-hide="HideEdit"></input>
+<br /><br />
+<table>
+	<thead>
+		<tr>
+		<tr>Name:</tr>
+		<tr>Age:</tr>
+		<tr>City:</tr>
+		<tr>Action:</tr>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="employee in employees">
+		<td> {{ employee.Name}} </td>
+		<td> {{ employee.Age }} </td>
+		<td> {{ employee.City }} </td>
+		<td><input type="button" ng-click="Edit(employee)" value="Edit"></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</body>
+</html>
